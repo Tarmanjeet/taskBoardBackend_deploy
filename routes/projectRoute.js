@@ -1,6 +1,9 @@
 const express=require("express");
 const projectRouter=express.Router();
 const {createProject,addMemberToProject,getProjects,getProjectById,updateProject,deleteProject}=require("../controllers/projectController");
+const { verifyToken } = require("../middleware/authMiddleware");
+
+projectRouter.use(verifyToken);
 
 projectRouter.post("/create",createProject);
 

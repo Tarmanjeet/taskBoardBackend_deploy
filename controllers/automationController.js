@@ -1,7 +1,6 @@
 const Automation = require("../models/automationSchema");
 const Task = require("../models/taskSchema");
 
-// Utility function to apply automations based on trigger
 const checkAutomation = async (task, fieldChanged, newValue) => {
   const automations = await Automation.find({
     project: task.projectId,
